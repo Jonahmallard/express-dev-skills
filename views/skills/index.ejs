@@ -7,14 +7,19 @@
     <title>Developer Skills</title>
 </head>
 <body>
+  <a href="/">Home</a>
     <h1>Skills</h1>
     <ul>
       <% skills.forEach(function(s) { %>
         <li>
-          <a href="/skills/<%= s.id %>"><%= s.skill %></a>
+          <a href="/skills/<%= s.id %>"><%= s.skill %></a> - 
+          <form action="/skills/<%= s.id %>?_method=DELETE" class="delete-form" method="POST">
+            <br>
+            <button type="submit">Delete</button>
+          </form>
         </li>
       <% }); %>
     </ul>
-    <a href="/">Home</a>
+    <a href="/skills/new">Add Skill</a>
 </body>
 </html>

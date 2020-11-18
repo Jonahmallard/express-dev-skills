@@ -9,15 +9,39 @@ const skills = [
 
 module.exports = {
     getAll,
-    getOne
+    getOne,
+    create,
+    deleteOne,
+    update
 };
 
 function getAll() {
     return skills;
 }
 
+function create(skill, data) {
+    // Add the id
+    skill.id = Date.now() % 1000000;
+    skill.data = data;
+    skills.push(skill);
+}
+
 function getOne(id) {
     // URL params are always strings
     id = parseInt(id);
     return skills.find(skill => skill.id === id)
+}
+
+function update(id, updatedSkill) {
+    // Obtain the correct skill object
+    const skill = skills.find(s => s.id === parseInt(id));
+    // Below will work
+    // skill.skill = updatedSkill.skill;
+    Object.assign(skill, updatedSkill);
+  }
+
+function deleteOne(id) {
+    id = parseInt(id)
+    const idx = skills.findIndex(s => s.id === id);
+    skills.splice(idx, 1)
 }

@@ -7,8 +7,11 @@
     <title>Developer Skills</title>
 </head>
 <body>
-    <h3><%= skill.skill %></h3>
+    <a href="/">Home</a>
+    <h1><%= skill.skill %></h1>
     <p><%= skill.data %></p>
-    <a href="/">Home</a> | <a href="/skills">Skills List</a>
+    <a href="/skills">Skills List</a> | 
+    <a href="/skills/<%= skill.id %>/edit">Edit Skill</a> | 
+    <a href="/skills/<%= skill.id %>/edit">Add a Description</a>
 </body>
 </html>
