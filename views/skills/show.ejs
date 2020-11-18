@@ -8,10 +8,14 @@
 </head>
 <body>
     <a href="/">Home</a>
-    <h1><%= skill.skill %></h1>
-    <p><%= skill.data %></p>
+        <h1><%= skill.skill %></h1>
+        <p><%= skill.data %></p>
     <a href="/skills">Skills List</a> | 
     <a href="/skills/<%= skill.id %>/edit">Edit Skill</a> | 
-    <a href="/skills/<%= skill.id %>/edit">Add a Description</a>
+    <a href="/skills/<%= skill.id %>/edit">Add a Description</a> |
+    <form action="/skills/<%= skill.id %>?_method=DELETE" class="delete-form" method="POST">
+        <br>
+        <button type="submit">Delete</button>
+    </form>
 </body>
 </html>
